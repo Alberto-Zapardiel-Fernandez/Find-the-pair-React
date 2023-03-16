@@ -7,8 +7,6 @@ let turn = 0
 let numberToCompare, lastCard
 
 const Card = ({ number, aciertos, setAciertos, setMensaje }) => {
-  const [clicked, setClicked] = useState(false)
-
   const showNumber = e => {
     e.target.textContent = number.toString()
     //Si es turno 0 guardamos ese botón y el numero a comparar y pasamos el turno
@@ -33,9 +31,9 @@ const Card = ({ number, aciertos, setAciertos, setMensaje }) => {
         setTimeout(() => {
           e.target.style.backgroundColor = '#242424'
           lastCard.style.backgroundColor = '#242424'
-          lastCard.textContent = ''
           lastCard = null
           numberToCompare = undefined
+          lastCard.textContent = ''
           e.target.textContent = ''
           setMensaje('Seguimos')
         }, 1000)
