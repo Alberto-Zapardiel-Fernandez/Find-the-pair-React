@@ -1,0 +1,27 @@
+.principal {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90vw;
+  height: 90vh;
+}
+
+.cabecera {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 30px;
+  font-style: italic;
+}
