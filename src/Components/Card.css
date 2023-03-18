@@ -6,10 +6,29 @@
   height: calc(60vh/4);
   justify-content: center;
   border-radius: 15px;
-  font-size: 40px;
+  font-size: 30px;
   user-select: none;
 }
 
 .card:hover {
   border: 1px solid antiquewhite;
+  cursor: pointer;
+}
+
+.clicked {
+  font-size: 40px;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+@media (max-width:600px) {
+
+  .card {
+    font-size: 20px;
+  }
+
+  .clicked {
+    font-size: 30px;
+  }
+
 }
