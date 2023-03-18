@@ -1,4 +1,3 @@
-//TODO generar los numeros y desordenar para devolverlos en el array (shuffle array)
 export function generateNumbers(numbers) {
   if (numbers <= 0) return
   const totalNumbers = []
@@ -8,5 +7,5 @@ export function generateNumbers(numbers) {
     totalNumbers.push(i)
   }
   //Barajear aquí
-  return totalNumbers
+  return totalNumbers.sort(() => Math.random() - 0.5)
 }
