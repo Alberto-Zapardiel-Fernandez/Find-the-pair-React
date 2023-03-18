@@ -1,26 +1,36 @@
-import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
 import Card from './Components/Card.jsx'
 import { generateNumbers } from './functions.js'
 
+let initialNumberOfCards = 8
+
+let numbersOnCards = generateNumbers(initialNumberOfCards)
 function App() {
   const [aciertos, setAciertos] = useState(0)
   const [mensaje, setMensaje] = useState('Bienvenido')
 
-  //TODO solicitar cantidad de cartas ( que sean pares y mas de 2-4) y hacer el setNumberOfCards
-  const [numberOfCards, setNumberOfCards] = useState(16)
-  //Generamos los números para las cartas
-  //TODO hacerlos aleatoriamente
-  const numbersOnCards = generateNumbers(numberOfCards)
+  const resetGame = cards => {
+    cards.forEach(card => {
+      card.style.visibility = 'visible'
+      card.textContent = ''
+      card.classList.remove('clicked')
+    })
+    setMensaje('Ganaste!')
+    setAciertos(0)
+    const result = confirm('¡Ganaste!¿Quieres seguir un poco más difícil?')
+    if (result) {
+      initialNumberOfCards *= 2
+      numbersOnCards = generateNumbers(initialNumberOfCards)
+    }
+  }
 
   let i = 0
   return (
     <main className='principal'>
-      <div className='cabecera'>
-        <h1>Find the pair</h1>
-        <h3>Aciertos: {aciertos}</h3>
-      </div>
+      <h1>Find the pair, jugando con {initialNumberOfCards} cartas</h1>
+      <br />
+      <h3>Aciertos: {aciertos}</h3>
       <h2>{mensaje}</h2>
       <div className='grid'>
         {numbersOnCards &&
@@ -32,6 +42,8 @@ function App() {
                 aciertos={aciertos}
                 setAciertos={setAciertos}
                 setMensaje={setMensaje}
+                numbersOnCards={numbersOnCards.length}
+                resetGame={resetGame}
               />
             )
           })}
