@@ -8,7 +8,7 @@ let initialNumberOfCards = 8
 let numbersOnCards = generateNumbers(initialNumberOfCards)
 function App() {
   const [aciertos, setAciertos] = useState(0)
-  const [mensaje, setMensaje] = useState('Bienvenido')
+  const [mensaje, setMensaje] = useState('Bienvenid@')
 
   const resetGame = cards => {
     cards.forEach(card => {
